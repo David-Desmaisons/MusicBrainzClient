@@ -45,6 +45,23 @@ namespace MusicBrainzClient
         Task<MusicBrainzRelease> GetRelease(string id, CancellationToken token, MusicBrainzWebInclude include = MusicBrainzWebInclude.none);
 
         /// <summary>
+        /// Retrieve release group information from MBID
+        /// </summary>
+        /// <param name="id">Release group MBID</param>
+        /// <param name="include">Additional information to include</param>
+        /// <returns>Release group information</returns>
+        Task<MusicBrainzRelease> GetReleaseGroup(string id, MusicBrainzWebInclude include = MusicBrainzWebInclude.none);
+
+        /// <summary>
+        /// Retrieve release group information from MBID
+        /// </summary>
+        /// <param name="id">Release group MBID</param>
+        /// <param name="token">Cancellation Token</param>
+        /// <param name="include">Additional information to include</param>
+        /// <returns>Release group information</returns>
+        Task<MusicBrainzRelease> GetReleaseGroup(string id, CancellationToken token, MusicBrainzWebInclude include = MusicBrainzWebInclude.none);
+
+        /// <summary>
         /// Retrieve covert information from release MBID
         /// </summary>
         /// <param name="id">Release MBID</param>

@@ -35,6 +35,18 @@ namespace MusicBrainzClient
             return await _MusicBrainzWebClient.Execute<MusicBrainzRelease>(request, CancellationToken.None);
         }
 
+        public async Task<MusicBrainzRelease> GetReleaseGroup(string id, MusicBrainzWebInclude include = MusicBrainzWebInclude.none)
+        {
+            return await GetReleaseGroup(id, CancellationToken.None, include);
+        }
+
+        public async Task<MusicBrainzRelease> GetReleaseGroup(string id, CancellationToken token, MusicBrainzWebInclude include = MusicBrainzWebInclude.none)
+        {
+            var toInclude = include.GetInclude();
+            var request = _MusicBrainzWebClient.GetReleaseGroupRequest(id, "inc", toInclude); ;
+            return await _MusicBrainzWebClient.Execute<MusicBrainzRelease>(request, CancellationToken.None);
+        }
+
         public async Task<MusicBrainzArtist> GetArtist(string id, MusicBrainzWebInclude include = MusicBrainzWebInclude.none)
         {
             return await GetArtist(id, CancellationToken.None, include);

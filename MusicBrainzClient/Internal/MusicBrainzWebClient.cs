@@ -48,6 +48,11 @@ namespace MusicBrainzClient.Internal
             return GetEntityRequest(_LabelReleaseUrl, labelId, option, value);
         }
 
+        public IRestRequest GetReleaseGroupRequest(string id, string option, string value)
+        {
+            return GetEntityRequest(_ReleaseGroupUrl, id, option, value);
+        }
+
         public IRestRequest GetReleaseRequest(string releaseId, string option, string value)
         {
             return GetEntityRequest(_ReleaseUrl, releaseId, option, value);
