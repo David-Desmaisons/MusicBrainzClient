@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicDateTimeConverter.cs" />
+    <Compile Include="NewtonsoftJsonSerializer.cs" />
     <Compile Include="RequestExtension.cs" />
     <Compile Include="RestSharpWebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
