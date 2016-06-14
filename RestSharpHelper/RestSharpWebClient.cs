@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using RateLimiter;
+﻿using RateLimiter;
 using RestSharp;
 using System;
 using System.IO;
@@ -43,6 +42,7 @@ namespace RestSharpHelper
                 UserAgent = UserAgent,
                 Timeout = timeOut
             };
+            client.AddHandler("application/json", NewtonsoftJsonSerializer.Default);
             return Mature(client);
         }
 
@@ -56,8 +56,8 @@ namespace RestSharpHelper
             try
             {
                 request = Mature(request);
-                var response = await GetResponse(request, cancellationToken);
-                return JsonConvert.DeserializeObject<T>(response.Content);
+                var response = await GetResponse<T>(request, cancellationToken);
+                return response.Data;
             }
             catch(Exception)
             {
@@ -65,20 +65,32 @@ namespace RestSharpHelper
             }    
         }
 
-        protected virtual IRestRequest Mature(IRestRequest request)
+        private async Task<IRestResponse<T>> GetResponse<T>(IRestRequest request, CancellationToken cancellationToken, IRestClient client = null)
         {
-            return request;
-        }
-
-        private async Task<IRestResponse> GetResponse(IRestRequest request, CancellationToken cancellationToken, IRestClient client = null)
-        {
+            request.JsonSerializer = NewtonsoftJsonSerializer.Default;
             client = client ?? Client;
-            var response = await TimeLimiter.Perform(async () => await ExecuteBasic(client, request, cancellationToken), cancellationToken);
+            var response = await TimeLimiter.Perform(async () => await ExecuteBasic<T>(client, request, cancellationToken), cancellationToken);
 
             if (response.ErrorException != null)
                 throw new WebClientException(_ErrorMessage, response.ErrorException);
 
+            CheckCallResult(response.StatusCode, client, request);
+
             return response;
+        }
+
+        protected virtual void CheckCallResult(HttpStatusCode code, IRestClient client, IRestRequest request)
+        {
+        }
+
+        private static Task<IRestResponse<T>> ExecuteBasic<T>(IRestClient client, IRestRequest request, CancellationToken cancellationToken)
+        {
+            return client.ExecuteTaskAsync<T>(request, cancellationToken);
+        }
+
+        protected virtual IRestRequest Mature(IRestRequest request)
+        {
+            return request;
         }
 
         public async Task<HttpStatusCode> Execute(IRestRequest request, CancellationToken cancellationToken)
@@ -95,6 +107,17 @@ namespace RestSharpHelper
                 ResponseWriter = (stream) => stream.CopyTo(copyStream)
             };
             await GetResponse(request, cancellationToken, client);
+        }
+
+        private async Task<IRestResponse> GetResponse(IRestRequest request, CancellationToken cancellationToken, IRestClient client = null)
+        {
+            client = client ?? Client;
+            var response = await TimeLimiter.Perform(async () => await ExecuteBasic(client, request, cancellationToken), cancellationToken);
+
+            if (response.ErrorException != null)
+                throw new WebClientException(_ErrorMessage, response.ErrorException);
+
+            return response;
         }
 
         private static Task<IRestResponse> ExecuteBasic(IRestClient client, IRestRequest request, CancellationToken cancellationToken)
