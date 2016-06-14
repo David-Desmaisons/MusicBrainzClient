@@ -12,7 +12,7 @@ namespace FanartTvClientTest
         [Fact]
         public void Deserialize_OK() 
         {
-            var res = JsonConvert.DeserializeObject<FanartTVImageInfo>(_Result);
+            var res = JsonConvert.DeserializeObject<FanartTVImagesInfo>(_Result);
             res.Should().NotBeNull();
         }
     }

@@ -3,6 +3,6 @@
     public class FanartTVAlbum 
     {
         public FanartTVCdart[] cdart { get; set; }
-        public FanartTVAlbumcover[] albumcover { get; set; }
+        public FanartTVImageInfo[] albumcover { get; set; }
     }
 }

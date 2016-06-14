@@ -54,9 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\FanartTVAlbum.cs" />
-    <Compile Include="Data\FanartTVAlbumcover.cs" />
-    <Compile Include="Data\FanartTVCdart.cs" />
     <Compile Include="Data\FanartTVImageInfo.cs" />
+    <Compile Include="Data\FanartTVCdart.cs" />
+    <Compile Include="Data\FanartTVArtistImagesInfo.cs" />
+    <Compile Include="Data\FanartTVImagesInfo.cs" />
     <Compile Include="FanartTvClient.cs" />
     <Compile Include="IFanartTvClient.cs" />
     <Compile Include="Internal\FanartTvWebClient.cs" />

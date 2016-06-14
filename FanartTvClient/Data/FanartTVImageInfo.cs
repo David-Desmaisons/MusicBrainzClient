@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace FanartTvClient.Data 
+﻿namespace FanartTvClient.Data 
 {
-    public class FanartTVImageInfo 
+    public class FanartTVImageInfo
     {
-        public string name { get; set; }
-        public string mbid_id { get; set; }
-        public Dictionary<string,FanartTVAlbum> albums { get; set; }
+        public string id { get; set; }
+        public string url { get; set; }
+        public string likes { get; set; }
     }
 }
