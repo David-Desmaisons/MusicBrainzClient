@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicBrainzClient", "MusicB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicBrainzClientTest", "MusicBrainzClientTest\MusicBrainzClientTest.csproj", "{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanartTvClient", "FanartTvClient\FanartTvClient.csproj", "{906758A7-5A11-4368-A71E-BF263012274F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanartTvClientTest", "FanartTVTest\FanartTvClientTest.csproj", "{FBD903C0-1FC3-46B2-8370-26C230DDA144}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{906758A7-5A11-4368-A71E-BF263012274F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906758A7-5A11-4368-A71E-BF263012274F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906758A7-5A11-4368-A71E-BF263012274F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906758A7-5A11-4368-A71E-BF263012274F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBD903C0-1FC3-46B2-8370-26C230DDA144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD903C0-1FC3-46B2-8370-26C230DDA144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD903C0-1FC3-46B2-8370-26C230DDA144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD903C0-1FC3-46B2-8370-26C230DDA144}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
