@@ -35,5 +35,20 @@ namespace FanartTvClient
         /// <param name="token">Cancellation Token</param>
         /// <returns>Artist image information</returns>
         Task<FanartTVArtistImagesInfo> GetArtistImageInformation(string id, CancellationToken token);
+
+        /// <summary>
+        /// Retrieve label image information from label MBID
+        /// </summary>
+        /// <param name="id">Label MBID</param>
+        /// <returns>Label image information</returns>
+        Task<FanartTVLabelImagesInfo> GetLabelImageInformation(string id);
+
+        /// <summary>
+        /// Retrieve label image information from label MBID
+        /// </summary>
+        /// <param name="id">Label MBID</param>
+        /// <param name="token">Cancellation Token</param>
+        /// <returns>Label image information</returns>
+        Task<FanartTVLabelImagesInfo> GetLabelImageInformation(string id, CancellationToken token);
     }
 }

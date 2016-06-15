@@ -25,6 +25,17 @@ namespace FanartTvClient
             return await _FanartTvWebClient.Execute<FanartTVArtistImagesInfo>(request, token);
         }
 
+        public Task<FanartTVLabelImagesInfo> GetLabelImageInformation(string id)
+        {
+            return GetLabelImageInformation(id, CancellationToken.None);
+        }
+
+        public async Task<FanartTVLabelImagesInfo> GetLabelImageInformation(string id, CancellationToken token)
+        {
+            var request = _FanartTvWebClient.GetLabelRequest(id);
+            return await _FanartTvWebClient.Execute<FanartTVLabelImagesInfo>(request, token);
+        }
+
         public Task<FanartTVAlbum> GetReleaseCoverInformation(string id)
         {
             return GetReleaseCoverInformation(id, CancellationToken.None);

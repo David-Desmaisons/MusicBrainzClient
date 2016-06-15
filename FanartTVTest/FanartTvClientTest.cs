@@ -9,7 +9,7 @@ namespace FanartTvClientTest
         private readonly FanartTvClient.FanartTvClient _FanartTvClient;
         public FanartTvClientTest()
         {
-            _FanartTvClient = new FanartTvClient.FanartTvClient("465487c01315d40913ad11d59e544afe");
+            _FanartTvClient = new FanartTvClient.FanartTvClient("");
         }
 
         [Fact]
@@ -23,6 +23,13 @@ namespace FanartTvClientTest
         public async Task GetArtistImageInformation_Test()
         {
             var res = await _FanartTvClient.GetArtistImageInformation("f4a31f0a-51dd-4fa7-986d-3095c40c5ed9");
+            res.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async Task GetLabelImageInformation_Test()
+        {
+            var res = await _FanartTvClient.GetLabelImageInformation("e832b688-546b-45e3-83e5-9f8db5dcde1d");
             res.Should().NotBeNull();
         }
     }
