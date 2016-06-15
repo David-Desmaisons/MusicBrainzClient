@@ -1,4 +1,5 @@
 ﻿using FanartTvClient.Data;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -50,5 +51,40 @@ namespace FanartTvClient
         /// <param name="token">Cancellation Token</param>
         /// <returns>Label image information</returns>
         Task<FanartTVLabelImagesInfo> GetLabelImageInformation(string id, CancellationToken token);
+
+        /// <summary>
+        /// Download the stream corresponding to a given image
+        /// </summary>
+        /// <param name="image">The image to download</param>
+        /// <param name="copyStream">Stream where image stream will be copied</param>
+        /// <param name="cancellationToken">Cancellation Token</param>
+        Task DownloadImage(FanartTVImageInfo image, Stream copyStream, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Download the stream corresponding to a given image
+        /// </summary>
+        /// <param name="image">The image to download</param>
+        /// <param name="copyStream">Stream where image stream will be copied</param>
+        Task DownloadImage(FanartTVImageInfo image, Stream copyStream);
+
+        /// <summary>
+        /// Save a given image to disk.
+        /// </summary>
+        /// <param name="image">The image to download</param>
+        /// <param name="path">Type of image to download: thumbnail or normal</param>
+        /// <param name="fileName">Type of image to download: thumbnail or normal</param>
+        /// <param name="cancellationToken">Cancellation Token</param>
+        /// <returns>the image stream</returns>
+        Task SaveImage(FanartTVImageInfo image, string path, string fileName, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Download the stream corresponding to a given image
+        /// </summary>
+        /// <param name="image">The image to download</param>
+        /// <param name="path">Type of image to download: thumbnail or normal</param>
+        /// <param name="fileName">Type of image to download: thumbnail or normal</param>
+        /// <returns>the image stream</returns>
+        Task SaveImage(FanartTVImageInfo image, string path, string fileName);
+
     }
 }
