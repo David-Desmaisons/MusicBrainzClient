@@ -62,19 +62,19 @@ namespace MusicBrainzClient
         Task<MusicBrainzReleaseGroup> GetReleaseGroup(string id, CancellationToken token, MusicBrainzWebInclude include = MusicBrainzWebInclude.none);
 
         /// <summary>
-        /// Retrieve covert information from release MBID
+        /// Retrieve cover information from release MBID
         /// </summary>
         /// <param name="id">Release MBID</param>
         /// <returns>Cover Information</returns>
-        Task<MusicBrainzCovertArtInformation> GetReleaseCoverInformation(string id);
+        Task<MusicBrainzCoverArtInformation> GetReleaseCoverInformation(string id);
 
         /// <summary>
-        /// Retrieve covert information from release MBID
+        /// Retrieve cover information from release MBID
         /// </summary>
         /// <param name="id">Release MBID</param>
         /// <param name="token">Cancellation Token</param>
         /// <returns>Cover Information</returns>
-        Task<MusicBrainzCovertArtInformation> GetReleaseCoverInformation(string id, CancellationToken token);
+        Task<MusicBrainzCoverArtInformation> GetReleaseCoverInformation(string id, CancellationToken token);
 
         /// <summary>
         /// Retrieve observable of releases from a given artist

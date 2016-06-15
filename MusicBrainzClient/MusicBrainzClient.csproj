@@ -70,7 +70,7 @@
     <Compile Include="Data\MusicBrainzArtist.cs" />
     <Compile Include="Data\MusicBrainzArtistCredit.cs" />
     <Compile Include="Data\MusicBrainzCoverArtArchive.cs" />
-    <Compile Include="Data\MusicBrainzCovertArtInformation.cs" />
+    <Compile Include="Data\MusicBrainzCoverArtInformation.cs" />
     <Compile Include="Data\MusicBrainzEntity.cs" />
     <Compile Include="Data\MusicBrainzImage.cs" />
     <Compile Include="Data\MusicBrainzLabel.cs" />

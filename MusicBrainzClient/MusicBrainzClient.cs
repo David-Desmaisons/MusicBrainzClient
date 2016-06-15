@@ -59,15 +59,15 @@ namespace MusicBrainzClient
             return await _MusicBrainzWebClient.Execute<MusicBrainzArtist>(request, token);
         }
 
-        public Task<MusicBrainzCovertArtInformation> GetReleaseCoverInformation(string id)
+        public Task<MusicBrainzCoverArtInformation> GetReleaseCoverInformation(string id)
         {
             return GetReleaseCoverInformation(id, CancellationToken.None);
         }
 
-        public async Task<MusicBrainzCovertArtInformation> GetReleaseCoverInformation(string id, CancellationToken token)
+        public async Task<MusicBrainzCoverArtInformation> GetReleaseCoverInformation(string id, CancellationToken token)
         {
             var request = _CoverArtArchiveWebClient.GetReleaseRequest(id);
-            return await _CoverArtArchiveWebClient.Execute<MusicBrainzCovertArtInformation>(request, token);
+            return await _CoverArtArchiveWebClient.Execute<MusicBrainzCoverArtInformation>(request, token);
         }
 
         public Task DownloadImage(MusicBrainzImage image, Stream copyStream, MusicBrainzImageFormatType type = MusicBrainzImageFormatType.Normal)

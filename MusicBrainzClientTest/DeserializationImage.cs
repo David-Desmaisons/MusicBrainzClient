@@ -12,7 +12,7 @@ namespace MusicBrainzClientTest
         [Fact]
         public void Deserialize_OK() 
         {
-            var res = JsonConvert.DeserializeObject<MusicBrainzCovertArtInformation>(_Result);
+            var res = JsonConvert.DeserializeObject<MusicBrainzCoverArtInformation>(_Result);
             res.Should().NotBeNull();
         }
     }
