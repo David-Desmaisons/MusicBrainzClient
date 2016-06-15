@@ -74,8 +74,8 @@ namespace FanartTvClient
         /// <param name="path">Type of image to download: thumbnail or normal</param>
         /// <param name="fileName">Type of image to download: thumbnail or normal</param>
         /// <param name="cancellationToken">Cancellation Token</param>
-        /// <returns>the image stream</returns>
-        Task SaveImage(FanartTVImageInfo image, string path, string fileName, CancellationToken cancellationToken);
+        /// <returns>the final image path</returns>
+        Task<string> SaveImage(FanartTVImageInfo image, string path, string fileName, CancellationToken cancellationToken);
 
         /// <summary>
         /// Download the stream corresponding to a given image
@@ -83,8 +83,8 @@ namespace FanartTvClient
         /// <param name="image">The image to download</param>
         /// <param name="path">Type of image to download: thumbnail or normal</param>
         /// <param name="fileName">Type of image to download: thumbnail or normal</param>
-        /// <returns>the image stream</returns>
-        Task SaveImage(FanartTVImageInfo image, string path, string fileName);
+        /// <returns>the final image path</returns>
+        Task<string> SaveImage(FanartTVImageInfo image, string path, string fileName);
 
     }
 }

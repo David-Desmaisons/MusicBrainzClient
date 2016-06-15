@@ -169,8 +169,8 @@ namespace MusicBrainzClient
         /// <param name="fileName">Type of image to download: thumbnail or normal</param>
         /// <param name="type">Type of image to download: thumbnail or normal</param>
         /// <param name="cancellationToken">Cancellation Token</param>
-        /// <returns>the image stream</returns>
-        Task SaveImage(MusicBrainzImage image, string path, string fileName, CancellationToken cancellationToken, MusicBrainzImageFormatType type = MusicBrainzImageFormatType.Normal);
+        /// <returns>the final image path</returns>
+        Task<string> SaveImage(MusicBrainzImage image, string path, string fileName, CancellationToken cancellationToken, MusicBrainzImageFormatType type = MusicBrainzImageFormatType.Normal);
 
         /// <summary>
         /// Download the stream corresponding to a given image
@@ -179,7 +179,7 @@ namespace MusicBrainzClient
         /// <param name="path">Type of image to download: thumbnail or normal</param>
         /// <param name="fileName">Type of image to download: thumbnail or normal</param>
         /// <param name="type">Type of image to download: thumbnail or normal</param>
-        /// <returns>the image stream</returns>
-        Task SaveImage(MusicBrainzImage image, string path, string fileName, MusicBrainzImageFormatType type = MusicBrainzImageFormatType.Normal);
+        /// <returns>the final image path</returns>
+        Task<string> SaveImage(MusicBrainzImage image, string path, string fileName, MusicBrainzImageFormatType type = MusicBrainzImageFormatType.Normal);
     }
 }

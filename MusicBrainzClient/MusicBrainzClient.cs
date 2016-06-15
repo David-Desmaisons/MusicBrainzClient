@@ -81,12 +81,12 @@ namespace MusicBrainzClient
             await _CoverArtArchiveWebClient.Download(path, copyStream, cancellationToken);
         }
 
-        public Task SaveImage(MusicBrainzImage image, string path, string fileName, MusicBrainzImageFormatType type = MusicBrainzImageFormatType.Normal)
+        public Task<string> SaveImage(MusicBrainzImage image, string path, string fileName, MusicBrainzImageFormatType type = MusicBrainzImageFormatType.Normal)
         {
             return SaveImage(image, path, fileName, CancellationToken.None, type);
         }
 
-        public async Task SaveImage(MusicBrainzImage image, string path, string fileName, CancellationToken cancellationToken, MusicBrainzImageFormatType type = MusicBrainzImageFormatType.Normal)
+        public async Task<string> SaveImage(MusicBrainzImage image, string path, string fileName, CancellationToken cancellationToken, MusicBrainzImageFormatType type = MusicBrainzImageFormatType.Normal)
         {
             var url = image.GetImagePath(type);
             var extension = Path.GetExtension(url);
@@ -95,6 +95,7 @@ namespace MusicBrainzClient
             {
                 await DownloadImage(image, writer, cancellationToken, type);
             }
+            return fullPath;
         }
 
         public IEnumerable<MusicBrainzRelease> SearchReleasesEnumerable(QueryBuilder query, int? max = null)

@@ -61,12 +61,12 @@ namespace FanartTvClient
             await _FanartTvWebClient.Download(path, copyStream, cancellationToken);
         }
 
-        public Task SaveImage(FanartTVImageInfo image, string path, string fileName)
+        public Task<string> SaveImage(FanartTVImageInfo image, string path, string fileName)
         {
             return SaveImage(image, path, fileName, CancellationToken.None);
         }
 
-        public async Task SaveImage(FanartTVImageInfo image, string path, string fileName, CancellationToken cancellationToken)
+        public async Task<string> SaveImage(FanartTVImageInfo image, string path, string fileName, CancellationToken cancellationToken)
         {
             var extension = Path.GetExtension(image.url);
             var fullPath = Path.Combine(path, fileName + extension);
@@ -74,6 +74,7 @@ namespace FanartTvClient
             {
                 await DownloadImage(image, writer, cancellationToken);
             }
+            return fullPath;
         }
     }
 }
