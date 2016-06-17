@@ -89,13 +89,7 @@ namespace MusicBrainzClient
         public async Task<string> SaveImage(MusicBrainzImage image, string path, string fileName, CancellationToken cancellationToken, MusicBrainzImageFormatType type = MusicBrainzImageFormatType.Normal)
         {
             var url = image.GetImagePath(type);
-            var extension = Path.GetExtension(url);
-            var fullPath = Path.Combine(path, fileName + extension);
-            using (var writer = File.Create(fullPath))
-            {
-                await DownloadImage(image, writer, cancellationToken, type);
-            }
-            return fullPath;
+            return await _CoverArtArchiveWebClient.SaveFile(url, path, fileName, cancellationToken);
         }
 
         public IEnumerable<MusicBrainzRelease> SearchReleasesEnumerable(QueryBuilder query, int? max = null)
@@ -142,8 +136,7 @@ namespace MusicBrainzClient
         {
             var toInclude = include.GetInclude();
             Func<IRestRequest> getRequest = () => _MusicBrainzWebClient.GetLabelReleasesRequest(labelId, "inc", toInclude);
-            return GenerateFromPaginableWithSize<MusicBrainzRelease, MusicBrainzSearchReleases>(getRequest, max);
-            
+            return GenerateFromPaginableWithSize<MusicBrainzRelease, MusicBrainzSearchReleases>(getRequest, max);      
         }
 
         private IObservable<T> GenerateFromPaginableWithSize<T, TRes>(Func<IRestRequest> requestBuilder, int? max = null) where T : MusicBrainzEntity

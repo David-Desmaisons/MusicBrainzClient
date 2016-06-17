@@ -99,9 +99,20 @@ namespace RestSharpHelper
             return response.StatusCode;
         }
 
-        public async Task Download(string url, Stream copyStream, CancellationToken cancellationToken)
+        public async Task<string> SaveFile(string url, string path, string fileName, CancellationToken cancellationToken, int timeOut = 15000)
         {
-            var client = GetClient(url, 15000);
+            var extension = Path.GetExtension(url);
+            var fullPath = Path.Combine(path, fileName + extension);
+            using (var writer = File.Create(fullPath))
+            {
+                await Download(url, writer, cancellationToken, timeOut);
+            }
+            return fullPath;
+        }
+
+        public async Task Download(string url, Stream copyStream, CancellationToken cancellationToken, int timeOut = 15000)
+        {
+            var client = GetClient(url, timeOut);
             var request = new RestRequest(Method.GET)
             {
                 ResponseWriter = (stream) => stream.CopyTo(copyStream)
