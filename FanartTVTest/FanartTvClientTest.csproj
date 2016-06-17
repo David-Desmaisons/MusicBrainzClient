@@ -80,10 +80,6 @@
       <Project>{906758a7-5a11-4368-a71e-bf263012274f}</Project>
       <Name>FanartTvClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestSharpHelper\RestSharpHelper.csproj">
-      <Project>{19ed04d1-fdd1-4047-a3ed-8ad22e9adeea}</Project>
-      <Name>RestSharpHelper</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

@@ -44,9 +44,9 @@ namespace FanartTvClientTest
             var res = await _FanartTvClient.GetReleaseCoverInformation("9ba659df-5814-32f6-b95f-02b738698e7c");
             var first = res.albumcover[0];
 
-            await _FanartTvClient.SaveImage(first, Path.GetTempPath(), "test");
+            var path = await _FanartTvClient.SaveImage(first, Path.GetTempPath(), "test");
 
-            _Output.WriteLine($"Saved to {Path.GetTempPath()}\\test");
+            _Output.WriteLine($"Saved to {path}");
         }
     }
 }

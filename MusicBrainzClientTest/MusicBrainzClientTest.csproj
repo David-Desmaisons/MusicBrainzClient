@@ -100,10 +100,6 @@
       <Project>{bc79b9d8-b6f1-4236-9b40-6219ffa829cc}</Project>
       <Name>MusicBrainzClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestSharpHelper\RestSharpHelper.csproj">
-      <Project>{19ed04d1-fdd1-4047-a3ed-8ad22e9adeea}</Project>
-      <Name>RestSharpHelper</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
