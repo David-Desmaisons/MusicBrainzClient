@@ -44,7 +44,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharpHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharpHelper.1.0.0\lib\net461\RestSharpHelper.dll</HintPath>
+      <HintPath>..\packages\RestSharpHelper.1.1.0\lib\net461\RestSharpHelper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
